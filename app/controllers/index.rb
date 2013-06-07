@@ -18,9 +18,9 @@ post '/login' do
   end
 end
 
-
-get '/users/start' do
-  params[:deck_type]
+get '/users/start/:deck_id' do |deck_id|
+  @round = Round.create(user_id: current_user.id, deck_id: deck_id)
+  @deck = Deck.find(deck_id).cards
   erb :round
 end
 
