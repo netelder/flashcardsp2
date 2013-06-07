@@ -1,4 +1,5 @@
 get '/' do
+<<<<<<< HEAD
   erb :index
 end
 
@@ -25,3 +26,8 @@ get '/logout' do
 
 end
 
+=======
+  # Look in app/views/index.erb
+  erb :index
+end
+>>>>>>> 4c4697aea5cd44ee378ffefffdd726eb2808bb86
