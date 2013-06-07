@@ -1,15 +1,23 @@
+enable :sessions
+
 get '/' do
-<<<<<<< HEAD
-  erb :index
+  if session[:user_id] == user.id
+    erb :profile
+  else
+    erb :index
+  end
 end
 
 post '/login' do 
-    User.find_by_name("david").try(:authenticate, "mUc3m00RsqyRe")
-
-  #vailidate
-  #create session_key
-  erb :profile
+  user = User.find_by_email(params[:email]).try(:authenticate, params[:password])
+  unless user.nil?
+    session[:user_id] = user.id
+    erb :profile
+  else
+    erb :index
+  end
 end
+
 
 get '/users/start' do
   params[:deck_type]
@@ -17,17 +25,11 @@ get '/users/start' do
 end
 
 post '/users/new' do
-  user = User.create(name: params[:name], email: params[:email], :password: params[:password], :password_confirmation: params[:password])
-  #conditional on session key
-  erb :profile
+  user = User.create(name: params[:name], email: params[:email], password: params[:password], password_confirmation: params[:password])
+  erb :index
 end
 
 get '/logout' do
-
-end
-
-=======
-  # Look in app/views/index.erb
+  session.clear
   erb :index
 end
->>>>>>> 4c4697aea5cd44ee378ffefffdd726eb2808bb86

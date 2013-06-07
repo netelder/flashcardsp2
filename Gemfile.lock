@@ -64,10 +64,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord
   activesupport
-<<<<<<< HEAD
   bcrypt-ruby (~> 3.0.0)
-=======
->>>>>>> 4c4697aea5cd44ee378ffefffdd726eb2808bb86
   faker
   pg
   rake
