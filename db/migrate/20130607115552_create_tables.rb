@@ -8,8 +8,8 @@ class CreateTables < ActiveRecord::Migration
     end
 
     create_table :rounds do |t|
-      t.references :user
-      t.references :deck
+      t.integer   :user_id
+      t.integer   :deck_id
       t.integer    :guess_count
       t.integer    :correct_count
       t.integer    :incorrect_count
@@ -22,8 +22,8 @@ class CreateTables < ActiveRecord::Migration
     end
 
     create_table :categories do |t|
-      t.references :deck
-      t.references :card
+      t.integer :deck_id
+      t.integer :card_id
       t.timestamps
     end
 
