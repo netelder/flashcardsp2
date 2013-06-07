@@ -1,7 +1,7 @@
 enable :sessions
 
 get '/' do
-  if session[:user_id] == user.id
+  if session[:user_id]
     erb :profile
   else
     erb :index
@@ -9,14 +9,15 @@ get '/' do
 end
 
 post '/login' do 
-  user = User.find_by_email(params[:email]).try(:authenticate, params[:password])
-  unless user.nil?
+  user = User.find_by_email(params[:email])
+  if user.check_password(params[:password_digest])
     session[:user_id] = user.id
     erb :profile
   else
     erb :index
   end
 end
+
 
 get '/users/start/:deck_id' do |deck_id|
   @round = Round.create(user_id: current_user.id, deck_id: deck_id)
@@ -25,7 +26,7 @@ get '/users/start/:deck_id' do |deck_id|
 end
 
 post '/users/new' do
-  user = User.create(name: params[:name], email: params[:email], password: params[:password], password_confirmation: params[:password])
+  user = User.create(name: params[:name], email: params[:email], password: params[:password_digest], password_confirmation: params[:pass_conf])
   erb :index
 end
 
