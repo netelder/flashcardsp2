@@ -1,18 +1,20 @@
 $(document).ready(function() {
-  // $('.login_form').on('click', function(e){
-  //   $.ajax({
-  //     url: '/login',
-  //     method: 'post',
-  //     data: $(this).serialize()
-  //   }).done(function(data){
-  //     // # this is where we push them to profile page
+  
+  $('#login_form').on('click', function(e){
+     e.preventDefault();
+     
+     $.ajax({
+       url: '/login',
+       method: 'post',
+       data: $(this).serialize()
+     }).done(function(data){
+          console.log(data)
+          $('#new_user_form').hide();
+          $('#profile').html(data);
+  
+       // # this is where we push them to profile page
+     }); // closes done
 
-  //   })
+   }); // closes on click
 
-  // })
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
-
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
-});
+}); // closes ready
