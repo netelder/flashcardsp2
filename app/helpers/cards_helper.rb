@@ -1,5 +1,7 @@
 helpers do
   def play()
+    @cards = Deck.find(deck_id).cards.shuffle
+    @card = @cards.pop
 
   end
 end

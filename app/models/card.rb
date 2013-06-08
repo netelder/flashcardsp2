@@ -1,6 +1,5 @@
 class Card < ActiveRecord::Base
-  has_many :categories
-  has_many :decks, :through => :categories
+ belongs_to :topic
   
   def correct?(user_guess)
     user_guess == self.answer

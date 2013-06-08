@@ -7,28 +7,21 @@ class CreateTables < ActiveRecord::Migration
       t.timestamps
     end
 
-    create_table :rounds do |t|
-      t.integer   :user_id
-      t.integer   :deck_id
-      t.integer    :guess_count
+    create_table :gamestats do |t|
+      t.integer    :user_id
       t.integer    :correct_count
       t.integer    :incorrect_count
       t.timestamps
     end
 
-    create_table :decks do |t|
-      t.string :name
-      t.timestamps
-    end
 
-    create_table :categories do |t|
-      t.integer :deck_id
-      t.integer :card_id
-      t.string  :status
+    create_table :topics do |t|
+      t.string  :name
       t.timestamps
     end
 
     create_table :cards do |t|
+      t.integer :topic_id
       t.text    :question
       t.string  :answer
       t.timestamps

@@ -1,9 +1,0 @@
-<div class="container">
-  <p id="question"><%=@card.question%></p>
-  <form id="game" method="Post" action="/users/play">
-    <input type="hidden" name="card_id" value="<%=@card.id%>"></br>
-    <input type="text" name="answer" placeholder="Your Answer"></br>
-    <button action="submit">Guess</button>
-  </form>
-
-</div>
