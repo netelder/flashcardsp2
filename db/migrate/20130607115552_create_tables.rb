@@ -14,7 +14,6 @@ class CreateTables < ActiveRecord::Migration
       t.timestamps
     end
 
-
     create_table :topics do |t|
       t.string  :name
       t.timestamps

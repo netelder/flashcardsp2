@@ -12,6 +12,7 @@ post '/login' do
   user = User.find_by_email(params[:email])
   if user.check_password(params[:password_digest])
     session[:user_id] = user.id
+    @topics = Topic.all
     erb :profile
   else
     erb :index
@@ -49,17 +50,11 @@ post '/game' do
   ["Your answer was #{response}.", @card.question, @card.id].to_json
   #erb :game
 end
-                                                                                                                                                                                                                                                                                                                                  
-# until @cards.empty? 
-#   @card = @cards.pop
-#   show card.question
-#   get answer
-
-# end
-
-
+                                                        
 post '/users/new' do
+
   user = User.create(name: params[:name], email: params[:email], password: params[:password_digest], password_confirmation: params[:pass_conf])
+  p user.inspect
   erb :index
 end
 

@@ -1,2 +1,7 @@
-Ready to learn?
-<%=@cards%>
+<div id="topics">
+<ul>
+  <%@topics.each do |topic|%>
+    <li><a href="/game/<%=topic.id%>"><%=topic.name%></a></li>
+  <%end%>
+</ul>
+</div>

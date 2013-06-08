@@ -13,7 +13,6 @@ $(document).ready(function() {
           $('#question').html(data[1]);
           $('input[id=card_id]').val(data[2]);
           $('input[name=answer]').val('')
-  
        // # this is where we push them to profile page
      }); // closes done
 
@@ -35,5 +34,15 @@ $(document).ready(function() {
      }); // closes done
 
    }); // closes on click
+  // $('#topics').on('click', function(e){
+  //   e.preventDefault();
+  //   var 
+
+  //   $.ajax({
+  //     url: "/game/"
+  //   })
+  // });
 
 }); // closes ready
+
+

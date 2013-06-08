@@ -1,7 +1,9 @@
 <div class="container">
   <div id="answer"></div><br><br>
+ 
 
   <div id="question"><%=@card.question%></div>
+  <%=session[:card_id]%>
   <form id="game" method="Post" action="/game">
     <input id="card_id" type="hidden" name="card_id" value="<%=@card.id%>"></br>
     <input type="text" name="answer" placeholder="Your Answer"></br>
