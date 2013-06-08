@@ -19,7 +19,6 @@ post '/login' do
   end
 end
 
-
 get '/users/start/:deck_id' do |deck_id|
   @round = Round.create(user_id: current_user.id, deck_id: deck_id)
   @cards = Deck.find(deck_id).cards.shuffle

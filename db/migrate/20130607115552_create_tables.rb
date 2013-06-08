@@ -24,6 +24,7 @@ class CreateTables < ActiveRecord::Migration
     create_table :categories do |t|
       t.integer :deck_id
       t.integer :card_id
+      t.string  :status
       t.timestamps
     end
 
